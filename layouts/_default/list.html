@@ -3,7 +3,7 @@
 <ul>
 	{{ range .Pages }}
 	<li>
-		{{with .Date}}{{. | time.Format "2006-01-02"}} {{end}}<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+		{{with .PublishDate}}{{. | time.Format "2006-01-02"}} {{end}}<a href="{{ .RelPermalink }}">{{ .Title }}</a>
 	</li>
 	{{ end }}
 </ul>

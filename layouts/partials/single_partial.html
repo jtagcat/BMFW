@@ -1,13 +1,13 @@
 {{ $n := false }} <!-- dumb: if any are set, set parent tag -->
 {{ with .Title }}{{ $n = true }}{{ end }}
-{{ with .Date }}{{ $n = true }}{{ end }}
+{{ with .PublishDate }}{{ $n = true }}{{ end }}
 {{ if .Params.readingtime }}{{ $n = true }}{{ end }}
 {{ if $n }}
 <header>
 {{ with .Title}}<h1>{{ . | markdownify }}</h1>{{ end }}
-{{ with .Date }}<time datetime="{{ . | safeHTMLAttr }}" itemprop="datePublished">{{ . | time.Format "2006-01-02" }}</time>{{ end }}
+{{ with .PublishDate }}<time datetime="{{ . | safeHTMLAttr }}" itemprop="datePublished">{{ . | time.Format "2006-01-02" }}</time>{{ end }}
 {{ $tags := (and (isset .Params "tags") (gt (len .Params.tags) 0) ) }}
-{{ if and .Date (or .Params.readingtime $tags) }} • {{ end }}
+{{ if and .PublishDate (or .Params.readingtime $tags) }} • {{ end }}
 {{ if .Params.readingtime }}{{i18n "readingTime" .ReadingTime}}{{if $tags}} • {{end}}{{ end }}
 {{ if $tags }}{{ range $i, $_ := .GetTerms "tags" }}
 {{ if gt $i 0 }} • {{ end }}
