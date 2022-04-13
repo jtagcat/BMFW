@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{- partial "compact_rss_h2.html" . -}}
+<ul>
+	{{ range .Pages }}
+	<li>
+		{{with .Date}}{{. | time.Format "2006-01-02"}} {{end}}<a style="color:#000" href="{{ .RelPermalink }}">{{ .Title }}</a>
+	</li>
+	{{ end }}
+</ul>
+#TODO: unlisted/private articles? also from sitemaps-indexes-rss
+{{ end }}

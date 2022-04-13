@@ -1,0 +1,4 @@
+readingTime:
+  other: '{{.Count}} minute read'
+notFound:
+  other: Page not found

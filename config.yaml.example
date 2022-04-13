@@ -1,0 +1,25 @@
+baseURL: https://bestmotherfucking.website/
+title: Best Motherfucking Website
+languageCode: et-ee
+defaultContentLanguage: et
+#TODO: 'language: et' does not change page language? defaultContentLanguage changes it globally
+theme: BMFW
+
+menu:
+  main:
+  - identifier: home
+    name: bmfw
+    url: /
+#    pre:
+#    post:
+    params:
+      underline: false
+      separator: "<br>"
+      activehighlight: false # does not turn bold when url is /
+    weight: -1000
+  - identifier: original
+    name: Original
+    url: https://bestmotherfucking.website/
+  - identifier: theme
+    name: Hugo theme
+    url: https://github.com/hell-hunt/BMFW

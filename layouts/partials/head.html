@@ -1,0 +1,7 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if eq "404" .Kind }}404 • {{.Site.Title}}{{else}}{{ with .Title }}{{ . }}{{ else }}{{.Site.Title}}{{ end }}{{end}}</title>
+{{ range .AlternativeOutputFormats -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $.Title | safeHTML }}
+{{ end -}}
+{{- partial "style.html" . -}}

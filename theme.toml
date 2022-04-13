@@ -1,0 +1,19 @@
+name = "BMFW"
+license = "MIT"
+licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
+description = "Best Motherfucking Website Hugofied"
+homepage = "https://bestmotherfucking.website/"
+tags = ["minimalist"]
+features = ["none"]
+min_version = "0.87"
+
+[author]
+  name = "jtagcat"
+
+[original]
+  name = "KeenRivals"
+  repo = "https://github.com/KeenRivals/bestmotherfucking.website"
+
+#TODO: code blocks look kinda ugly
+# single: .Lastmod will not be implemented
+# single: categories not implemented

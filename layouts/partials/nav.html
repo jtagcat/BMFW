@@ -1,0 +1,14 @@
+{{ if ne 0 (len .Site.Menus.main) }}
+<header>
+    <nav>
+        {{ $page := (path.Clean .RelPermalink) }} <!-- will not higlight root -->
+        {{ $l := (sub (len .Site.Menus.main) 1) }} <!-- used to not add a seperator after last item -->
+        {{ range $i, $_ := .Site.Menus.main }}
+            {{ $active := ( and (cond (eq (.URL | relLangURL) $page) true false) (not (and (isset .Params "activehighlight") (not .Params.activehighlight))) )}} <!-- is current page, make <b> -->
+            <!-- pre-post; underline:false; (color:black); custom seperator,  -->
+            {{with .Pre }}{{. | safeHTML}}{{end}}{{if $active}}<b>{{end}}<a style="{{ if and (isset .Params "underline") (eq false .Params.underline) }}text-decoration: none;{{end}}color: #000;" href="{{ .URL | relLangURL }}">{{ .Name }}</a>{{with .Post }}{{. | safeHTML}}{{end}}{{ if $active}}</b>{{end}}{{ if ne $i $l }}{{if isset .Params "separator"}}{{.Params.separator | safeHTML}}{{else}} • {{end}}{{ end }}
+        {{ end }}
+    </nav>
+    <hr>
+</header>
+{{ end }}

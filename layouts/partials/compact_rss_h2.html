@@ -1,0 +1,4 @@
+<div style="display: flex; justify-content: space-between; align-items:center;">
+	<h2 style="margin-top: 0; margin-bottom: 0;">{{.Title}}</h2>
+	{{ with .OutputFormats.Get "rss" -}}{{ printf `<a style="color:#000" rel="%s" type="%s" href="%s" title="%s">RSS</a>` .Rel .MediaType.Type .Permalink $.Title | safeHTML }}{{ end -}}
+</div>

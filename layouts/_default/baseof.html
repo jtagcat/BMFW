@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="{{ with .Language }}{{ . }}{{ else }}{{ .Site.Language.Lang }}{{end}}">
+{{- partial "head.html" . -}}
+{{ if or (eq .Params.navbar true) (not (isset .Params "navbar")) }}{{ partial "nav.html" . }}{{end}}
+
+{{ $mainTag := (cond (eq .Kind "page") "article" "main") }}
+{{ printf `<%s>` $mainTag | safeHTML }}
+    {{ block "main" . }}{{ end }}
+{{ printf `</%s>` $mainTag | safeHTML }}
+</html>
