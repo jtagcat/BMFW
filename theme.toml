@@ -17,3 +17,4 @@ min_version = "0.87"
 #TODO: code blocks look kinda ugly
 # single: .Lastmod will not be implemented
 # single: categories not implemented
+#TODO: id tags
