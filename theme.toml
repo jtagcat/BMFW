@@ -18,3 +18,6 @@ min_version = "0.87"
 # single: .Lastmod will not be implemented
 # single: categories not implemented
 #TODO: id tags
+#TODO: support listing all posts on root page, maintainer not personally interested
+
+#TODO: hugo GetTerms undocumented variable?
