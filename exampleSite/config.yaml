@@ -6,6 +6,7 @@ defaultContentLanguage: et
 theme: BMFW
 
 params:
+  readingTime: false # show '8 minute read'
   titleAnchors: false # Left of titles, an anchor to the title will appear.
 
 menu:
