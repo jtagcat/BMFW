@@ -1,11 +1,11 @@
 {{ define "main" }}
 {{- partial "compact_rss_h2.html" . -}}
 <ul>
-	{{ range .Pages }}
+	{{- range .Pages }}
 	<li>
-		{{with .PublishDate}}{{. | time.Format "2006-01-02"}} {{end}}<a href="{{ .RelPermalink }}">{{ .Title }}</a>
+		{{ with .PublishDate }}{{ . | time.Format "2006-01-02" }} {{ end }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>
 	</li>
-	{{ end }}
+	{{- end }}
 </ul>
-#TODO: unlisted/private articles? also from sitemaps-indexes-rss
-{{ end }}
+<!-- TODO: unlisted/private articles? also from sitemaps-indexes-rss -->
+{{- end }}
