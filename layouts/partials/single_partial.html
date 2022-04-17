@@ -1,10 +1,11 @@
-{{ $n := false }} <!-- dumb: if any are set, set parent tag -->
-{{ with .Title }}{{ $n = true }}{{ end }}
-{{ with .PublishDate }}{{ $n = true }}{{ end }}
-{{ if .Params.readingTime }}{{ $n = true }}{{ end }}
-{{ if $n }}
+{{ $headerOK := false }} <!-- dumb: if any are set, set parent tag -->
+{{ $titleOK:= and (isset . "Title") (and (isset .Params "titleAsH1") (not .Params.titleAsH1)) }}
+{{ if $titleOK}}{{ $headerOK = true }}{{ end }}
+{{ with .PublishDate }}{{ $headerOK = true }}{{ end }}
+{{ if .Params.readingTime }}{{ $headerOK = true }}{{ end }}
+{{ if $headerOK }}
 <header>
-{{ if and (isset .Params "titleAsH1") (not .Params.titleAsH1) }}{{with .Title}}<h1>{{ . | markdownify }}</h1>{{end}}{{ end }}
+{{ if $titleOK}}{{with .Title}}<h1>{{ . | markdownify }}</h1>{{end}}{{ end }}
 {{ with .PublishDate }}<time datetime="{{ . | safeHTMLAttr }}" itemprop="datePublished">{{ . | time.Format "2006-01-02" }}</time>{{ end }}
 {{ $tags := (and (isset .Params "tags") (gt (len .Params.tags) 0) ) }}
 {{ if and .PublishDate (or .Params.readingTime $tags) }} • {{ end }}
