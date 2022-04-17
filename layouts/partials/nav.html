@@ -8,7 +8,7 @@
             {{- with .Pre }}{{. | safeHTML}}{{ end }}
             {{- if $active -}}<b>{{ end }}
             <a style="{{ if and (isset .Params "underline") (eq false .Params.underline) }}text-decoration: none; {{ end }}color: #000;" href="{{ .URL | relLangURL }}">
-                {{- .Name }}</a>
+                {{- .Name | markdownify }}</a>
             {{- if $active -}}</b>{{ end }}
             {{- with .Post -}}{{. | safeHTML}}{{ end }}
             {{- if ne $i $l -}}
