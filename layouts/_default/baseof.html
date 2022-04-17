@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{- with .Language -}}{{- . -}}{{- else -}}{{- .Site.Language.Lang -}}{{- end -}}">
-{{- partial "head.html" . }}
+{{ partial "head.html" . }}
 {{- if or (eq .Params.navbar true) (not (isset .Params "navbar")) }}
 {{- partial "nav.html" . }}{{- end -}}
 {{- $mainTag := (cond (eq .Kind "page") "article" "main") -}}
