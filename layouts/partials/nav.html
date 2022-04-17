@@ -4,7 +4,7 @@
         {{- $page := (path.Clean .RelPermalink) }} <!-- will not higlight root -->
         {{- $l := (sub (len .Site.Menus.main) 1) }} <!-- used to not add a seperator after last item -->
         {{- range $i, $_ := .Site.Menus.main }}
-            {{- $active := ( and (cond (eq (.URL | relLangURL) $page) true false) (not (and (isset .Params "activehighlight") (not .Params.activehighlight))) ) }} <!-- is current page, make <b> -->
+            {{- $active := ( and (cond (eq (.URL | relLangURL) $page) true false) (not (and (isset .Params "activeHighlight") (not .Params.activeHighlight))) ) }} <!-- is current page, make <b> -->
             {{- with .Pre }}{{. | safeHTML}}{{ end }}
             {{- if $active -}}<b>{{ end }}
             <a style="{{ if and (isset .Params "underline") (eq false .Params.underline) }}text-decoration: none; {{ end }}color: #000;" href="{{ .URL | relLangURL }}">

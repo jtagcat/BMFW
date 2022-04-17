@@ -18,7 +18,7 @@ menu:
     params:
       underline: false
       separator: "<br>"
-      activehighlight: false # does not turn bold when url is /
+      activeHighlight: false # does not turn bold when url is /
     weight: -1000
   - identifier: original
     name: Original
