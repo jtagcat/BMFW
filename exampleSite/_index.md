@@ -3,10 +3,10 @@ title: Best Motherfucking Website
 navbar: false
 titleAsH1: false
 ---
-{{< header >}}
+{{< headerStart >}} <!-- Independant nested shortcodes don't work without brainfuck -->
 # This is _the best_ motherfucking website. {#}
 {{< aside >}}And it’s fucking perfect.{{< /aside >}}
-{{< /header >}}
+{{< headerEnd >}}
 
 ## Seriously, what the fuck else do you want? {#}
 You keep forgetting. Let me describe the perfect-ass website:
