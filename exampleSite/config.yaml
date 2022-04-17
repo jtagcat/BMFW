@@ -2,7 +2,7 @@ baseURL: https://bestmotherfucking.website/
 title: Best Motherfucking Website
 languageCode: et-ee
 defaultContentLanguage: et
-#TODO: 'language: et' does not change page language? defaultContentLanguage changes it globally
+pluralizeListTitles: false
 theme: BMFW
 
 params:

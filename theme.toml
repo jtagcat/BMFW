@@ -13,12 +13,3 @@ min_version = "0.87"
 [original]
   name = "KeenRivals"
   repo = "https://github.com/KeenRivals/bestmotherfucking.website"
-
-#TODO: code blocks look kinda ugly
-# single: .Lastmod will not be implemented
-# single: categories not implemented
-
-#TODO: support listing all posts on root page, maintainer not personally interested
-#TODO: niceties: automatic image compression-optimization
-
-#TODO: hugo GetTerms undocumented variable?
