@@ -1,3 +1,4 @@
+# git submodule add https://github.com/hell-hunt/BMFW.git themes/BMFW
 baseURL: https://bestmotherfucking.website/
 title: Best Motherfucking Website
 languageCode: et-ee
