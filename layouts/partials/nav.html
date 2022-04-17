@@ -1,4 +1,4 @@
-{{- if ne 0 (len .Site.Menus.main) -}}
+{{- if isset .Site.Menus "main" -}}
 <header>
     <nav>
         {{- $page := (path.Clean .RelPermalink) }} <!-- will not higlight root -->
