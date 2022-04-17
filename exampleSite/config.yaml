@@ -5,6 +5,9 @@ defaultContentLanguage: et
 #TODO: 'language: et' does not change page language? defaultContentLanguage changes it globally
 theme: BMFW
 
+params:
+  titleAnchors: false # Left of titles, an anchor to the title will appear.
+
 menu:
   main:
   - identifier: home

@@ -1,0 +1,4 @@
+<h{{ .Level }} {{ with .Anchor }}id="{{ . | safeURL }}"{{ end }}>
+    {{- with .Anchor }}{{ if site.Params.TitleAnchors }}<a aria-hidden="true" href="#{{ . | safeURL }}">¶</a>{{ end }}{{ end -}}
+    {{ .Text | safeHTML }}
+</h{{ .Level }}>

@@ -11,16 +11,26 @@
 		padding:0 .62em;
 		font:1.2em/1.62 sans-serif
 	}
-	h1,h2,h3 {
+	h1,h2,h3{
 		line-height:1.2
 	}
+	{{- if .Site.Params.TitleAnchors }}
+	h1 a,h2 a,h3 a { /* added by hugo theme */
+		float: left;
+		margin-left: -1em;
+		text-decoration: none;
+		color: gray
+	}
+	h1 a:hover,h2 a:hover,h3 a:hover {
+		color: #000
+	}
+	{{- end }}
 	@media print{
 		body{
 			max-width:none
 		}
 	}
-	/* added by hugo theme */
-	blockquote {
+	blockquote { /* added by hugo theme */
 		margin-left: 0;
 		padding-left: 1em;
 		border-inline-start: 0.25em solid #000;
