@@ -4,7 +4,7 @@
 {{ if .Params.readingtime }}{{ $n = true }}{{ end }}
 {{ if $n }}
 <header>
-{{ with .Title}}<h1>{{ . | markdownify }}</h1>{{ end }}
+{{ if and (isset .Params "titleAsH1") (not .Params.titleAsH1) }}{{with .Title}}<h1>{{ . | markdownify }}</h1>{{end}}{{ end }}
 {{ with .PublishDate }}<time datetime="{{ . | safeHTMLAttr }}" itemprop="datePublished">{{ . | time.Format "2006-01-02" }}</time>{{ end }}
 {{ $tags := (and (isset .Params "tags") (gt (len .Params.tags) 0) ) }}
 {{ if and .PublishDate (or .Params.readingtime $tags) }} • {{ end }}

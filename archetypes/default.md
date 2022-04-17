@@ -4,5 +4,6 @@ date: {{ .Date }}
 tags: []
 navbar: true
 readingtime: false
+titleAsH1: true
 draft: true
 ---
