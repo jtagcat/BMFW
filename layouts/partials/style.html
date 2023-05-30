@@ -1,10 +1,4 @@
 <style>
-	@media (prefers-color-scheme: dark){
-		body {color:#fff;background:#000}
-		a:link {color:#cdf}
-		a:hover, a:visited:hover {color:#def}
-		a:visited {color:#dcf}
-	}
 	body{
 		margin:1em auto;
 		max-width:40em;
@@ -14,25 +8,44 @@
 	h1,h2,h3{
 		line-height:1.2
 	}
+	
+	.mainblack {color:#000}
+	.novisited:visited {color:#000}
+	.novisited:hover, .novisited:visited:hover {color:#111}
+
 	{{- if .Site.Params.TitleAnchors }}
-	h1 a,h2 a,h3 a { /* added by hugo theme */
+	/* added by hugo theme */
+	:is(h1, h2, h3, h4, h5, h6) a {
 		float: left;
 		margin-left: -1em;
 		text-decoration: none;
 		color: gray
 	}
-	h1 a:hover,h2 a:hover,h3 a:hover {
-		color: #000
-	}
+	:is(h1, h2, h3, h4, h5, h6) a:hover {color: #000}
 	{{- end }}
+
 	blockquote { /* added by hugo theme */
 		margin-left: 0;
 		padding-left: 1em;
 		border-inline-start: 0.25em solid #000;
 	}
+
 	@media print{
-		body{
-			max-width:none
-		}
+		body{max-width:none}
+	}
+
+	@media (prefers-color-scheme: dark){
+		body {color:#fff;background:#000}
+		
+		.mainblack {color:#fff}
+		.novisited:visited {color:#fff}
+		.novisited:hover, .novisited:visited:hover {color:#eee}
+		
+		a {color:#8abfff}
+		a:hover, a:visited:hover {color:#def}
+		a:visited {color:#dcf}
+		
+		{{- if .Site.Params.TitleAnchors }}:is(h1, h2, h3, h4, h5, h6) a:hover {color: #fff}{{end}}
+		blockquote {border-inline-start: 0.25em solid #fff}
 	}
 </style>

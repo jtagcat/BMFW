@@ -17,7 +17,7 @@
 {{- if $tags}} • {{end}}{{ end }}
 {{- if $tags }}{{ range $i, $_ := .GetTerms "tags" }}
 {{- if gt $i 0 }} • {{ end -}}
-<a style="color:#000" href="{{.RelPermalink}}">{{.LinkTitle}}</a>
+<a class="mainblack" href="{{.RelPermalink}}">{{.LinkTitle}}</a>
 {{- end }}
 {{- /* */}}
 {{- end }}

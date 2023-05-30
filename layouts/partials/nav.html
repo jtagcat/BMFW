@@ -7,7 +7,7 @@
             {{- $active := ( and (cond (eq (.URL | relLangURL) $page) true false) (not (and (isset .Params "activehighlight") (not .Params.activeHighlight))) ) }} <!-- is current page, make <b> -->
             {{- with .Pre }}{{. | safeHTML}}{{ end }}
             {{- if $active -}}<b>{{ end }}
-            <a style="{{ if and (isset .Params "underline") (eq false .Params.underline) }}text-decoration: none; {{ end }}color: #000;" href="{{ .URL | relLangURL }}">
+            <a style="{{ if and (isset .Params "underline") (eq false .Params.underline) }}text-decoration: none; {{ end }}" class="mainblack novisited" href="{{ .URL | relLangURL }}">
                 {{- .Name | markdownify }}</a>
             {{- if $active -}}</b>{{ end }}
             {{- with .Post -}}{{. | safeHTML}}{{ end }}
