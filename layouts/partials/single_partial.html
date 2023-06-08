@@ -11,7 +11,7 @@
 {{- /* */}}
 {{ with .PublishDate }}<time datetime="{{ . | safeHTMLAttr }}" itemprop="datePublished">{{ . | time.Format "2006-01-02" }}</time>{{ end -}}
 {{- $tags := (and (isset .Params "tags") (gt (len .Params.tags) 0) ) }}
-{{- if and .PublishDate (or .Params.readingTime $tags) }} • {{ end }}
+{{- if and .PublishDate (or $readingTime $tags) }} • {{ end }}
 {{- if $readingTime }}{{i18n "readingTime" .ReadingTime}}
 {{- /* */}}
 {{- if $tags}} • {{end}}{{ end }}
