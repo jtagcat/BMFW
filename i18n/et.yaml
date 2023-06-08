@@ -1,5 +1,5 @@
 readingTime:
-  one: 1 minut lugemist
-  other: '{{.Count}} minutit lugemist'
+  one: 1 minuti lugemine
+  other: '{{.Count}} minuti lugemine'
 notFound:
   other: Lehte ei leitud
