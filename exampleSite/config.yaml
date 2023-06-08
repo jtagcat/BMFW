@@ -1,3 +1,5 @@
+# to replace main page with content/_index.md: $ mkdir -p layouts && cp themes/BMFW/layouts/partials/_default/single.html layouts/index.html
+
 # git submodule add https://github.com/hell-hunt/BMFW.git themes/BMFW
 baseURL: https://bestmotherfucking.website/
 title: Best Motherfucking Website
