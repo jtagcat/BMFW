@@ -1,8 +1,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{- if eq "404" .Kind -}}404 • {{.Site.Title | markdownify | plainify }}
-    {{- else }}{{- with .Title | markdownify | plainify -}}{{ . }}
-    {{- else }}{{.Site.Title | markdownify | plainify }}
+<title>{{- if eq "404" .Kind -}}404 • {{.Site.Title | markdownify }}
+    {{- else }}{{- with .Title | markdownify -}}{{ . }}
+    {{- else }}{{.Site.Title | markdownify }}
     {{- end }}{{ end }}</title>
 {{- range .AlternativeOutputFormats }}
 {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $.Title | safeHTML }}
