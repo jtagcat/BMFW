@@ -8,7 +8,12 @@
 	h1,h2,h3{
 		line-height:1.2
 	}
+
+	/* added by hugo theme */
+	header > h1{margin-bottom:0}
+	header{margin-bottom:1em}
 	
+	/* added by hugo theme */
 	.mainblack {color:#000}
 	.novisited:visited {color:#000}
 	.novisited:hover, .novisited:visited:hover {color:#111}
@@ -24,11 +29,13 @@
 	.anchor:hover {color: #000}
 	{{- end }}
 
-	blockquote { /* added by hugo theme */
+	/* added by hugo theme */
+	blockquote {
 		margin-left: 0;
 		padding-left: 1em;
 		border-inline-start: 0.25em solid #000;
 	}
+	pre {background: #eee;}
 
 	@media print{
 		body{max-width:none}
@@ -47,5 +54,6 @@
 		
 		{{- if .Site.Params.TitleAnchors }}.anchor:hover {color: #fff}{{end}}
 		blockquote {border-inline-start: 0.25em solid #fff}
+		pre {background: #222;}
 	}
 </style>
