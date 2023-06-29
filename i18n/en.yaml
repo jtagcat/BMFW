@@ -2,3 +2,7 @@ readingTime:
   other: '{{.Count}} minute read'
 notFound:
   other: Page not found
+continuesText:
+  other: '[...]'
+continuesLink:
+  other: '↪ Read More'

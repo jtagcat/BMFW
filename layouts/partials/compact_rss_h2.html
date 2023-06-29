@@ -1,6 +1,13 @@
 <div style="display: flex; justify-content: space-between; align-items:center;">
 	<h2 style="margin-top: 0; margin-bottom: 0;">{{.Title}}</h2>
-	{{- with .OutputFormats.Get "rss" }}
-	{{- printf `<a class="mainblack" rel="%s" type="%s" href="%s" title="%s">RSS</a>` .Rel .MediaType.Type .Permalink $.Title | safeHTML }}
-	{{- end }}
+	{{- with .AlternativeOutputFormats }}<div>{{- range $i, $_ := . }}
+	{{- if $i }} | {{ end -}}
+
+	{{- $displayName := .MediaType.Type -}}
+	{{- if eq .MediaType.Type "application/rss+xml" }}{{$displayName = "RSS"}}
+	{{- else if eq .MediaType.Type "application/feed+json"}}{{$displayName = "JSON"}}
+	{{- else }} {{ errorf "compact_rss_h2.html: missing displayName for feed type %q" .MediaType.Type }} {{ end -}}
+
+	{{ printf `<a class="mainblack" rel="%s" type="%s" href="%s" title="%s">%s</a>` .Rel .MediaType.Type .RelPermalink $.Title $displayName | safeHTML }}
+	{{- end }}</div>{{ end -}}
 </div>

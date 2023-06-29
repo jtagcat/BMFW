@@ -3,3 +3,7 @@ readingTime:
   other: '{{.Count}} minuti lugemine'
 notFound:
   other: Lehte ei leitud
+continuesText:
+  other: '[...]'
+continueLink:
+  other: '↪ Loe edasi'

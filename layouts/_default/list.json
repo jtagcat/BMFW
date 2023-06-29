@@ -1,0 +1,45 @@
+{{- /* based on https://foosel.net/til/how-to-add-json-feed-support-to-hugo/ */ -}}
+
+{{- $pctx := . -}}
+{{- if .IsHome -}}{{ $pctx = site }}{{- end -}}
+{{- $pages := slice -}}
+{{- if or $.IsHome $.IsSection -}}
+{{- $pages = $pctx.RegularPages -}}
+{{- else -}}
+{{- $pages = $pctx.Pages -}}
+{{- end -}}
+{{- $limit := site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}
+{{- $pages = $pages | first $limit -}}
+{{- end -}}
+{{- $title := "" }}
+{{- if eq .Title .Site.Title }}
+{{- $title = .Site.Title }}
+{{- else }}
+{{- with .Title }}
+{{- $title = print . " on "}}
+{{- end }}
+{{- $title = print $title .Site.Title }}
+{{- end }}
+{
+    "version": "https://jsonfeed.org/version/1.1",
+    "title": {{ $title | jsonify }},
+    "home_page_url": {{ .Permalink | jsonify }},
+    {{- with  .OutputFormats.Get "jsonfeed" }}
+    "feed_url": {{ .Permalink | jsonify  }},
+    {{- end }}
+    {{- with $pages }}
+    "items": [
+        {{- range $i, $_ := . }}
+        {{- if $i }}, {{ end }}
+        {
+            "id": {{ .Permalink | jsonify }},
+            "url": {{ .Permalink | jsonify }},
+            "date_published": {{ .PublishDate.Format "2006-01-02T15:04:05Z07:00"| jsonify }},
+            "title": {{ .Title | jsonify }},
+            "content_html": {{ .Content | jsonify }}
+        }
+        {{- end }}
+    ]
+    {{ end }}
+}
