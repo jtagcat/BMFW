@@ -4,12 +4,12 @@
 {{- with .PublishDate }}{{ $headerOK = true }}{{ end }}
 {{- $readingTime := (or .Params.readingTime (and (not (isset .Params "readingtime")) .Site.Params.readingTime) )}}
 {{- if $readingTime }}{{ $headerOK = true }}{{ end }}
-{{- /* */}}
+
 {{- if $headerOK }}
 <header>
-{{- if $titleOK }}{{with .Title}}<h1>{{ . | markdownify }}</h1>{{end}}{{ end }}
-{{- /* */}}
-{{ with .PublishDate }}<time datetime="{{ . | safeHTMLAttr }}" itemprop="datePublished">{{ . | time.Format "2006-01-02" }}</time>{{ end -}}
+{{- if $titleOK -}}{{with .Title}}<h1>{{ . | markdownify }}</h1>{{end}}{{ end }}
+
+{{- with .PublishDate }}<time datetime="{{ . | safeHTMLAttr }}" itemprop="datePublished">{{ . | time.Format "2006-01-02" }}</time>{{ end -}}
 {{- $tags := (and (isset .Params "tags") (gt (len .Params.tags) 0) ) }}
 {{- if and .PublishDate (or $readingTime $tags) }} • {{ end }}
 {{- if $readingTime }}{{i18n "readingTime" .ReadingTime}}
