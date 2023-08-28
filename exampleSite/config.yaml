@@ -24,7 +24,11 @@ outputs:
    - HTML
    - jsonfeed
    - RSS
-  list:
+  taxonomy:
+    - HTML
+    - jsonfeed
+    - RSS
+  term:
     - HTML
     - jsonfeed
     - RSS
