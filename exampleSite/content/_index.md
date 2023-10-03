@@ -2,6 +2,7 @@
 title: Best Motherfucking Website
 navbar: false
 titleAsH1: false
+layout: single
 ---
 # This is _the best_ motherfucking website. {#}
 {{< aside >}}And it’s fucking perfect.{{< /aside >}}
