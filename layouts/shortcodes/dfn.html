@@ -1,4 +1,3 @@
-{{- $titleOK := false -}}
 <dfn{{ with .Get "title" }} title="{{ . | safeHTMLAttr}}"
 {{- else }}{{ $z := (.Get 0) }}{{ if (not (and "" $z)) }} title="{{ $z | safeHTMLAttr}}"{{ end }}{{ end }}
 {{- with .Get "id" }} id="{{ . | safeURL }}"{{ end }}>
