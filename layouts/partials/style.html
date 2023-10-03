@@ -1,3 +1,7 @@
+{{ $titleAnchors := .Site.Params.TitleAnchors -}}
+{{ with .Page.Params.titleAnchors -}} {{ $titleAnchors = . }} {{- end -}}
+{{ $preLengthCap := .Site.Params.PreLengthCap -}}
+{{ with .Page.Params.preLengthCap -}} {{ $titleAnchors = . }} {{- end -}}
 <style>
 	body{
 		margin:1em auto;
@@ -18,7 +22,7 @@
 	.novisited:visited {color:#000}
 	.novisited:hover, .novisited:visited:hover {color:#111}
 
-	{{- if .Site.Params.TitleAnchors }}
+	{{- if $titleAnchors }}
 	/* added by hugo theme */
 	.anchor {
 		float: left;
@@ -38,6 +42,7 @@
 	pre {
 		background: #eee;
 		overflow-y: auto;
+		{{- if $preLengthCap }}max-height: 30em;{{ end }}
 	}
 
 	@media print{
@@ -55,7 +60,7 @@
 		a:hover, a:visited:hover {color:#def}
 		a:visited {color:#dcf}
 		
-		{{- if .Site.Params.TitleAnchors }}.anchor:hover {color: #fff}{{end}}
+		{{- if $titleAnchors }}.anchor:hover {color: #fff}{{end}}
 		blockquote {border-inline-start: 0.25em solid #fff}
 		pre {background: #222;}
 	}
