@@ -49,6 +49,9 @@
 		body{max-width:none}
 	}
 
+	@media (prefers-color-scheme: light) {
+		{{ partial "syntax-light.css" . | safeCSS }} {{- /* bloat :( */ -}}
+	}
 	@media (prefers-color-scheme: dark){
 		body {color:#fff;background:#000}
 		
@@ -63,5 +66,6 @@
 		{{- if $titleAnchors }}.anchor:hover {color: #fff}{{end}}
 		blockquote {border-inline-start: 0.25em solid #fff}
 		pre {background: #222;}
+		{{ partial "syntax-dark.css" . | safeCSS }} {{- /* bloat :( */ -}}
 	}
 </style>
