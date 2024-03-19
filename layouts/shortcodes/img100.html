@@ -1,0 +1,2 @@
+<img {{ with .Get 0 }}src="{{.}}"{{ else }}{{ errorf "%q shortcode: expected at least 1 positional argument, image path" .Name }}{{ end -}}
+{{ with .Get 1 }} alt="{{.}}"{{end}} style="max-width:{{ with .Get 2 }}{{.}}{{else}}100%{{end}};">
